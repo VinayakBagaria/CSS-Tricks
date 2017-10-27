@@ -1,0 +1,52 @@
+path,
+line {
+  fill: none;
+  stroke: #2a3745;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}
+
+/* give the vectors a dashed stroke */
+.stroke-I {
+  stroke-dasharray: 80;
+  animation: write1 2s 1 ease-out;
+}
+
+.stroke-an {
+  stroke-dasharray: 360;
+  animation: write2 2s 1 ease-in-out;
+}
+
+.stroke-flourish {
+  stroke-dasharray: 40;
+  animation: write3 2s 1 ease-in;
+}
+
+@keyframes write1 {
+    0% {
+        stroke-dashoffset: 80;
+    }
+    20% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes write2 {
+    0%, 25%  {
+        stroke-dashoffset: 360;
+    }
+    90% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes write3 {
+    0%, 90% {
+        stroke-dashoffset: 40;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
