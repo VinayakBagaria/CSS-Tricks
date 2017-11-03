@@ -1,0 +1,53 @@
+.container{
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.stick, .stick::before, .stick::after{
+  background: red;
+  width: 40px;
+  height: 5px;
+  position: absolute;
+  transition: all 0.5s;
+  transform-origin: 50% 50%;
+}
+
+.stick::before{
+  content: "";
+  top: -13px;
+}
+
+.stick::after{
+  content: "";
+  top: 13px;
+}
+
+/*
+  set degree to specidy where the arrow points
+*/
+.stick.arrow{
+  transform: rotate(180deg);
+}
+
+/*
+  change pos of a transformed element X/Y
+  100% 50% is center of right vertical edge of a box
+
+  Initially all lines is just one. Then we just rotate the arrow some degrees to make it look like an arrow.
+ */
+
+ /* upper arrow */
+.stick.arrow::after{
+  transform-origin: 100% 50%;
+  transform: translateY(-14px) rotate(-45deg) scaleX(0.7);
+}
+
+/* down arrow */
+.stick.arrow::before{
+  transform-origin: 100% 50%;
+  transform: translateY(14px) rotate(45deg) scaleX(0.7);
+}
