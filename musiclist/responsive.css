@@ -1,0 +1,50 @@
+@media screen and (max-width: 64em){
+  .sm-hide{
+    display: none;
+  }
+
+  .sm-text-center{
+    text-align: center;
+  }
+
+  .sm-text-right{
+    text-align: right;
+  }
+
+  section.content .music-head{
+    flex: 0 0 auto;
+
+    display: flex;
+    /* stack imgs and music details vertically */
+    flex-direction: column;
+    /* center items L->R */
+    align-items: center;
+    padding: 40px 0;
+    background-color: #4e4e4e;
+  }
+
+  section.content .music-head .music-details{
+    padding: 0;
+  }
+
+  /* album art */
+  .music-head img{
+    width: 150px;
+  }
+
+  /* album details */
+  .music-details div:nth-child(1) p:first-child{
+    margin: 20px 0;
+    font-size: 1em;
+  }
+
+  /* songs list */
+  li p{
+    flex: 0 0 50%;
+  }
+
+  /* music controls */
+  .music-controls{
+    justify-content: space-around;
+  }
+}

@@ -1,0 +1,27 @@
+html, body{
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+header, footer{
+  height: 50px;
+}
+
+header {
+  background-color: #27ae60;
+}
+
+main {
+  background-color: #3498db;
+  flex: 1 0 0;
+}
+
+footer {
+  background-color: #c0392b;
+}

@@ -1,0 +1,218 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "Open Sans";
+  line-height: 1.618em;
+  color: #444;
+  background-color: #2c2c2c;
+}
+
+a{
+  text-decoration: none;
+}
+
+.wrapper{
+  max-width: 50rem;
+  width: 100%;
+  margin: 5rem auto;
+  text-align: center;
+}
+
+#flip{
+  display: none;
+}
+
+.card{
+  padding: 0;
+  display: block;
+  width: 32rem;
+  height: 20rem;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+}
+
+#flip:not(:checked) + label > .card{
+  transform: rotateY(0deg);
+  transition: transform 0.25s;
+}
+
+#flip:checked + label > .card{
+  transform: rotateY(180deg);
+  transition: transform 0.25s;
+}
+
+.front, .back{
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: rgba(0,0,0,0.2) 0 0 3rem 0, rgba(0,0,0,0.1) 0 0 1rem 0;
+}
+
+.front{
+  transform: translateZ(2px);
+  background: #2d5077;
+  border-radius: 2rem 0;
+  color: #cddbea;
+}
+
+.front:after{
+  content: 'Click to flip';
+  background: #2d5077;
+  white-space: nowrap;
+  position: absolute;
+  top: 6rem;
+  bottom: 6rem;
+  left: 2.5rem;
+  right: 2.5rem;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 128px;
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.front:hover:after{
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.35s;
+}
+
+.front_bg{
+  position: absolute;
+  left: -2.7rem;
+  top: -1rem;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 30rem;
+  line-height: 20rem;
+  letter-spacing: -0.09rem;
+  color: rgba(255, 255, 255, 0.04);
+}
+
+.name{
+  position: absolute;
+  top: 8rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.name span{
+  font-weight: 800;
+}
+
+.profession{
+  position: absolute;
+  top: 11rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.strip{
+  position: absolute;
+  top: 6rem;
+  bottom: 6rem;
+  left: 0;
+  right: 0;
+  background: #2d5077;
+}
+
+.left_side, .right_side{
+  position: absolute;
+  top: 7rem;
+  bottom: 7rem;
+  width: 0.25rem;
+  background: #3a5c81;
+}
+
+.left_side {
+  left: 1.5rem;
+}
+.right_side {
+  right: 1.5rem;
+}
+
+.back {
+  border-radius: 0 2rem;
+  transform: translateZ(-2px) rotateY(180deg);
+  background: #fff;
+  border: 1px solid #2d5077;
+  padding-top: 1.7rem;
+}
+.left_back {
+  background: #2d5077;
+  position: absolute;
+  top: 0;
+  left: -1rem;
+  bottom: 0;
+  width: 9.5rem;
+}
+.item {
+  position: relative;
+  margin-left: 3.5rem;
+  text-align: left;
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 2em;
+  z-index: 1;
+}
+.item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  bottom: 0;
+  background: #2d5077;
+  z-index: -1;
+  transition: width 0.35s;
+}
+.item:hover::before {
+  width: 30rem;
+  transition: width 0.35s;
+}
+.item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 0;
+  right: 23.35rem;
+  bottom: 0;
+  background: #34587f;
+  z-index: -1;
+  transition: width 0.35s;
+}
+.item:hover::after {
+  width: 9rem;
+  transition: width 0.35s;
+}
+.item:hover a {
+  color: #cddbea;
+  transition: color 0.35s;
+}
+.item a {
+  color: #2d5077;
+  transition: color 0.35s;
+}
+.item:hover .fa {
+  color: #fff;
+  transition: color 0.35s;
+}
+.fa {
+  width: 2em;
+  text-align: center;
+  margin-right: 2em;
+  color: #cddbea;
+  transition: color 0.35s;
+}

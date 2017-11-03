@@ -1,0 +1,51 @@
+/* remove default margins */
+body {
+  margin: 0;
+}
+
+/* remove default white space under the images */
+img {
+  display: block;
+}
+
+
+.foreground{
+  /* allows us to place the element out of its regular position(below the img) and place it anywhere we like */
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.ufo_section{
+  height: 100%;
+  background: url(images/ufo.svg);
+  /* appear only once rather than more and cover the space alloted to it */
+  background-repeat: no-repeat;
+  background-position: center;
+  /* w h -- height is automatically calculated */
+  background-size: 40% auto;
+  /* stay in the place as we scroll, giving an illusion of descent */
+  background-attachment: fixed;
+}
+
+.comet_section {
+  height: 100%;
+  background: url(images/alien_comet.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 15% auto;
+  background-attachment: fixed;
+}
+
+.landing_section {
+  height: 100%;
+  background: url(images/alien_landing.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 15% auto;
+  background-attachment: fixed;
+  position: relative;
+}

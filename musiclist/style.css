@@ -1,0 +1,142 @@
+html, body{
+  height: 100%;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+
+  background-color: #fff;
+  margin: 0;
+  font-family: Lato, sans-serif;
+  color: #222;
+  font-size: 0.9em;
+}
+
+main{
+  /* compute size of the element automatically but never shrink */
+  flex: 1 0 auto;
+
+  display: flex;
+}
+
+aside{
+  /* dont shrink or grow and stay at always 40px size */
+  flex: 0 0 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: #f2f2f2;
+}
+
+aside i.fa{
+  font-size: 0.9em;
+}
+
+.content{
+  display: flex;
+  /* the section takes entire space and shrinks too */
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+.music-head{
+  flex: 0 0 280px;
+
+  display: flex;
+
+  padding: 40px;
+  background-color: #4e4e4e;
+}
+
+.music-details{
+  flex: 1 1 auto;
+
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+  color: #fff;
+  padding-left: 50px;
+}
+
+.music-details div:nth-child(1){
+  margin-bottom: auto;
+}
+
+.music-details div:nth-child(2){
+  margin-top: 0;
+}
+
+.music-details div:nth-child(2) i.fa{
+  font-size: 0.9em;
+  padding: 0 0.7em;
+  font-weight: 300;
+}
+
+.music-details div:nth-child(1) p:first-child{
+  font-size: 1.8em;
+  margin: 0 0 10px;
+}
+
+.music-details div:nth-child(1) p:not(:first-child){
+  font-size: 0.9em;
+  margin: 2px 0;
+}
+
+.music-list{
+  flex: 1 0 auto;
+
+  list-style-type: none;
+  padding: 5px 10px 0;
+}
+
+li{
+  /* child paras in one line */
+  display: flex;
+  padding: 0 20px;
+  min-height: 50px;
+}
+li p{
+  flex: 0 0 25%;
+}
+
+li span.cloud{
+  border: 1px solid black;
+  font-size: 0.6em;
+  padding: 3px;
+}
+
+li:nth-child(2){
+  background-color: #f2f2f2;
+}
+
+footer{
+  /* dont shrink or grow and stay at always 90px size */
+  flex: 0 0 90px;
+
+  display: flex;
+
+  padding: 10px;
+  color: #fff;
+  background-color: rgba(61, 100, 158, .9);
+}
+
+.music-small{
+  display: flex;
+  margin-right: auto;
+}
+
+.music-small img{
+  padding-right: 10px;
+  width: 100px;
+}
+
+.music-controls{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
