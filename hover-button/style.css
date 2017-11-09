@@ -1,0 +1,46 @@
+body{
+  background: #eee;
+}
+
+.btn{
+  width: 160px;
+  height: 50px;
+  background: tomato;
+  cursor: pointer;
+  /* centering the button, relative to its container body */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  overflow: hidden;
+}
+
+.btn:before{
+  content: 'Hover me';
+  /* centering the text, relative to its container button */
+  transition: all 0.3s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.btn:hover:before{
+  top: -20px;
+}
+
+.btn:after{
+  font-family: 'Ionicons';
+  font-size: 30px;
+  content: '\f233';
+  transition: all 0.3s;
+  /* centering the icon, relative to its container button */
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.btn:hover:after{
+  top: 50%;
+}
