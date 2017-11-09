@@ -1,0 +1,29 @@
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%; }
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+ul.listItems li {
+  display: inline-block;
+  font-size: 40px;
+  transition: all 0.5s ease-out; }
+ul.listItems.hidden li:nth-child(1) {
+  transform: translate(250px, 100px); }
+ul.listItems.hidden li:nth-child(2) {
+  transform: translate(-350px, -240px); }
+ul.listItems.hidden li:nth-child(3) {
+  transform: translate(-520px, 50px); }
+ul.listItems.hidden li:nth-child(4) {
+  transform: translate(90px, -300px); }
+ul.listItems.hidden li:nth-child(5) {
+  transform: translate(350px, 300px); }
+
+/*# sourceMappingURL=style.css.map */
