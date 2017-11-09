@@ -1,0 +1,30 @@
+.switch {
+  position: relative; }
+  .switch input[type="checkbox"] {
+    visibility: hidden; }
+    .switch input[type="checkbox"]:checked + label {
+      background-color: green; }
+      .switch input[type="checkbox"]:checked + label:after {
+        left: 27px; }
+  .switch label {
+    position: absolute;
+    width: 50px;
+    height: 23px;
+    top: 0;
+    left: 0;
+    background-color: red;
+    border-radius: 50px;
+    transition: all 0.5s; }
+    .switch label:after {
+      content: '';
+      transition: all 0.5s;
+      width: 25px;
+      height: 25px;
+      background-color: #fff;
+      position: absolute;
+      left: -2px;
+      border-radius: 50%;
+      box-shadow: 0 0 4px;
+      color: #999; }
+
+/*# sourceMappingURL=style.css.map */
