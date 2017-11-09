@@ -1,0 +1,43 @@
+$disabled-color: red;
+$active-color: green;
+$trans-time: 0.5s;
+
+.switch{
+  position: relative;
+
+  input[type="checkbox"]{
+    visibility: hidden;
+    &:checked{
+      // on the label just after the checkbox if ticked ; use pseudo before / after
+      + label{
+        background-color: $active-color;
+        &:after{
+          left: 27px;
+        }
+      }
+    }
+  }
+  label{
+    position: absolute;
+    width: 50px;
+    height: 23px;
+    top: 0;
+    left: 0;
+    background-color: $disabled-color;
+    border-radius: 50px;
+    transition: all $trans-time;
+
+    &:after{
+      content: '';
+      transition: all $trans-time;
+      width: 25px;
+      height: 25px;
+      background-color: #fff;
+      position: absolute;
+      left: -2px;
+      border-radius: 50%;
+      box-shadow: 0 0 4px;
+      color: #999;
+    }
+  }
+}
