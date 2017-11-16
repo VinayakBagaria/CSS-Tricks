@@ -1,0 +1,43 @@
+.container {
+    margin-top: 60px;
+}
+
+.pokeball {
+    box-sizing: border-box;
+    --pokeball-size: 250px;
+    --pokeball-inner-size: 80px;
+    --pokeball-border-size: 10px;
+    --before-diameter: var(--pokeball-inner-size);
+
+    border: var(--pokeball-border-size) solid #262122;
+    width: var(--pokeball-size);
+    height: var(--pokeball-size);
+    border-radius: 100%;
+    margin: 0 auto;
+
+    position: relative;
+
+    background: linear-gradient(
+        150deg,
+        #BA0C2F 0%,
+        #BA0C2F 44%,
+        #262122 44%,
+        #262122 56%,
+        #fff 56%,
+        #fff 100% 
+    )
+}
+
+.pokeball:before,
+.pokeball:after {
+    content: "";
+    border-radius: 100%;
+    display: block;
+    position: absolute;
+}
+
+.pokeball:before {
+    background: green;
+    width: var(--before-diameter);
+    height: var(--before-diameter);
+}
