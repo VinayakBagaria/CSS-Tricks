@@ -1,0 +1,42 @@
+.clip {
+    /* text styling */
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    font-size: 8rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.clip,
+.clip::before,
+.clip::after {
+    /* fill screen */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* alignment */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50%;
+    box-sizing: border-box;
+}
+
+.clip::before,
+.clip::after {
+    content: attr(data-content);
+}
+
+.clip::before {
+    color: white;
+    background: pink;
+    clip-path: polygon(0 0, 100% 0, 0 100%, 0 100%);
+}
+
+.clip::after {
+    color: pink;
+    background: blue;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 100% 0);
+}
