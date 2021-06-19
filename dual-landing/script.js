@@ -1,14 +1,15 @@
-$l = $('.left')
-$r = $('.right')
+$('.left')
+  .mouseenter(() => {
+    $('.container').addClass('left-is-hovered');
+  })
+  .mouseleave(() => {
+    $('.container').removeClass('left-is-hovered');
+  });
 
-$l.mouseenter(function() {
-  $('.container').addClass('left-is-hovered');
-}).mouseleave(function() {
-  $('.container').removeClass('left-is-hovered');
-});
-
-$r.mouseenter(function() {
-  $('.container').addClass('right-is-hovered');
-}).mouseleave(function() {
-  $('.container').removeClass('right-is-hovered');
-});
+$('.right')
+  .mouseenter(() => {
+    $('.container').addClass('right-is-hovered');
+  })
+  .mouseleave(() => {
+    $('.container').removeClass('right-is-hovered');
+  });
