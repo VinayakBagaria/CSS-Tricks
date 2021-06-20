@@ -10,7 +10,8 @@ body {
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 h1 {
@@ -19,7 +20,8 @@ h1 {
   position: absolute;
   left: 50%;
   top: 20%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   white-space: nowrap;
 }
 
@@ -31,6 +33,7 @@ h1::after {
   left: 0;
   bottom: -8px;
   background: #fff;
+  -webkit-transition: 500ms all ease-in-out;
   transition: 500ms all ease-in-out;
 }
 
@@ -45,7 +48,8 @@ a.cta {
   text-decoration: none;
   left: 50%;
   bottom: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   border: 2px solid #fff;
   font-size: 0.75em;
   font-weight: 700;
@@ -56,16 +60,23 @@ a.cta {
 a.cta::before {
   content: '';
   background: #fff;
-  height: 0;
   width: 100%;
   position: absolute;
   bottom: 0;
   left: 0;
-  transition: 300ms all ease-in-out;
+  right: 0;
+  height: 4px;
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+  -webkit-transition: 300ms -webkit-transform ease-in-out;
+  transition: 300ms -webkit-transform ease-in-out;
+  transition: 300ms transform ease-in-out;
+  transition: 300ms transform ease-in-out, 300ms -webkit-transform ease-in-out;
 }
 
 a.cta:hover::before {
-  height: 4px;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 .container {
@@ -84,8 +95,7 @@ a.cta:hover::before {
 
 .container .one-half.left {
   left: 0;
-  background: url('http://jurathefilm.com/wp-content/uploads/2015/02/homepage_panorama_1920.jpg')
-    center center no-repeat;
+  background: url("http://jurathefilm.com/wp-content/uploads/2015/02/homepage_panorama_1920.jpg") center center no-repeat;
   background-size: cover;
 }
 
@@ -99,8 +109,7 @@ a.cta:hover::before {
 
 .container .one-half.right {
   right: 0;
-  background: url('http://www.kocakogluyazilim.com/img/webYazilim.jpg') center
-    center no-repeat;
+  background: url("http://www.kocakogluyazilim.com/img/webYazilim.jpg") center center no-repeat;
   background-size: cover;
 }
 
@@ -114,11 +123,13 @@ a.cta:hover::before {
 
 .container .one-half.left,
 .container .one-half.right {
+  -webkit-transition: 500ms all ease-in-out;
   transition: 500ms all ease-in-out;
 }
 
 .container .one-half.left::before,
 .container .one-half.right::before {
+  -webkit-transition: 500ms all ease-in-out;
   transition: 500ms all ease-in-out;
 }
 
