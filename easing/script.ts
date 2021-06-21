@@ -10,6 +10,9 @@ const EASINGS = [
 ];
 
 const ALMOST1 = 0.9999999999;
+const TICKER = 0.01;
+const NEXT_ANIMATION_WAIT = 1500;
+const LINE_WIDTH = 4;
 
 const count = EASINGS.length;
 
@@ -49,7 +52,7 @@ class Canvas {
     this.inset = DI * 0.2;
     this.di = DI - this.inset * 2;
     this.ctx = cvs.getContext('2d');
-    this.ctx.lineWidth = 4;
+    this.ctx.lineWidth = LINE_WIDTH;
     this.ctx.strokeStyle = this.color;
     this.ease = easeFunction;
     this.reset();
@@ -110,13 +113,14 @@ function run() {
   let x = 0;
 
   function loop() {
-    x = min(ALMOST1, x + 0.01);
+    x = min(ALMOST1, x + TICKER);
     canvases.forEach((canvas) => canvas.tick(x));
+    // When we reach almost 1, reset the canvas and start RAF again
     if (x >= ALMOST1) {
       setTimeout(() => {
         canvases.forEach((canvas) => canvas.reset());
         loop();
-      }, 1500);
+      }, NEXT_ANIMATION_WAIT);
       x = 0;
     } else {
       requestAnimationFrame(loop);

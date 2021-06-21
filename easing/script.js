@@ -8,6 +8,9 @@ var EASINGS = [
     function (x) { return 1 - sin(PI / (2 * (1 - x))) * pow(1 - x, 2); },
 ];
 var ALMOST1 = 0.9999999999;
+var TICKER = 0.01;
+var NEXT_ANIMATION_WAIT = 1500;
+var LINE_WIDTH = 4;
 var count = EASINGS.length;
 var DI = 800;
 function funcToMath(functionExp) {
@@ -33,7 +36,7 @@ var Canvas = /** @class */ (function () {
         this.inset = DI * 0.2;
         this.di = DI - this.inset * 2;
         this.ctx = cvs.getContext('2d');
-        this.ctx.lineWidth = 4;
+        this.ctx.lineWidth = LINE_WIDTH;
         this.ctx.strokeStyle = this.color;
         this.ease = easeFunction;
         this.reset();
@@ -81,13 +84,14 @@ function init() {
 function run() {
     var x = 0;
     function loop() {
-        x = min(ALMOST1, x + 0.01);
+        x = min(ALMOST1, x + TICKER);
         canvases.forEach(function (canvas) { return canvas.tick(x); });
+        // When we reach almost 1, reset the canvas and start RAF again
         if (x >= ALMOST1) {
             setTimeout(function () {
                 canvases.forEach(function (canvas) { return canvas.reset(); });
                 loop();
-            }, 1500);
+            }, NEXT_ANIMATION_WAIT);
             x = 0;
         }
         else {
