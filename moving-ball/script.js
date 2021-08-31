@@ -1,7 +1,13 @@
 const height = window.innerHeight;
 const width = window.innerWidth;
 
-const ball = document.querySelector('.ball');
+const svg = document.querySelector('svg');
+const circle = svg.querySelector('circle');
+
+svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+svg.setAttribute('width', width);
+svg.setAttribute('height', height);
+
 let x = 100;
 let y = 100;
 
@@ -20,7 +26,8 @@ function loop() {
     ySpeed *= -1;
   }
 
-  ball.style.transform = `translate(${x}px, ${y}px)`;
+  circle.setAttribute('cx', x);
+  circle.setAttribute('cy', y);
   requestAnimationFrame(loop);
 }
 

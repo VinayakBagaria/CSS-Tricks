@@ -2,8 +2,8 @@ const svg = document.querySelector('svg');
 const pol = svg.querySelector('polyline');
 const rect = svg.querySelector('rect');
 
-const height = window.innerHeight;
-const width = window.innerWidth;
+const height = window.innerHeight / 1.2;
+const width = window.innerWidth / 2;
 
 svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
 svg.setAttribute('width', width);
