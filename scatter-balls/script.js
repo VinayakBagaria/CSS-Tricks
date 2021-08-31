@@ -1,5 +1,7 @@
 const colors = ['#029DAF', '#E5D599', '#FFC219', '#F07C19', '#E32551'];
 
+const gravity = 0.04;
+
 const height = window.innerHeight;
 const width = window.innerWidth;
 
@@ -24,12 +26,7 @@ function initParticles() {
 }
 
 function createParticle(i) {
-  const size = 5 * Math.random() + 5;
-  const color = colors[i % colors.length];
-  // So accelX will either be +ve or -ve
-  const accelX = -2 + Math.random() * 4;
-  const accelY = Math.random() * -3;
-  const p = new Particle(initialX, initialY, accelX, accelY, size, color);
+  const p = new Particle(i);
   particles.push(p);
 }
 
@@ -39,20 +36,33 @@ class Particle {
   y;
   accelX;
   accelY;
+  randomIndicator;
 
-  constructor(x, y, accelX, accelY, size, color) {
+  constructor(i) {
     const circle = document.createElementNS(svg.namespaceURI, 'circle');
     svg.appendChild(circle);
-    circle.setAttribute('r', size / 2);
-    circle.setAttribute('fill', color);
+    circle.setAttribute('r', (5 * Math.random() + 5) / 2);
+    circle.setAttribute('fill', colors[i % colors.length]);
     this.circle = circle;
-    this.x = x;
-    this.y = y;
-    this.accelX = accelX;
-    this.accelY = accelY;
+    this.reset();
+  }
+
+  reset() {
+    this.x = width / 2;
+    this.y = height / 2;
+    this.randomIndicator = 0.5 + Math.random() * 0.5;
+    // So accelX will either be +ve or -ve
+    this.accelX = -2 + Math.random() * 4;
+    this.accelY = Math.random() * -3;
   }
 
   update() {
+    if (this.randomIndicator - 0.005 > 0) {
+      this.randomIndicator -= 0.005;
+    } else {
+      this.reset();
+    }
+    this.accelY += gravity;
     this.x += this.accelX;
     this.y += this.accelY;
     this.circle.setAttribute('cx', this.x);
@@ -61,7 +71,7 @@ class Particle {
 }
 
 function loop() {
-  particles.forEach((eachP) => eachP.update());
+  particles.forEach((particle) => particle.update());
   requestAnimationFrame(loop);
 }
 
