@@ -1,5 +1,6 @@
 const svg = document.querySelector('svg');
 const pol = svg.querySelector('polyline');
+const rect = svg.querySelector('rect');
 
 const height = window.innerHeight;
 const width = window.innerWidth;
@@ -21,4 +22,5 @@ document.onmousemove = (event) => {
     'points',
     `${halvedW} ${halvedH} ${event.clientX} ${event.clientY}`
   );
+  rect.setAttribute('width', event.clientX);
 };
